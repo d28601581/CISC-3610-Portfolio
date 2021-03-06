@@ -1,5 +1,6 @@
 "use strict";
 var count = 0;
+var a = true;
 
 
 var Scene = {
@@ -10,26 +11,26 @@ var Scene = {
 
 Scene.start = function() {
     // Get the canvas and it's context.
-    Scene.canvas = document.getElementById("myCanvas");
-    Scene.canvasContext = Scene.canvas.getContext("2d");
+    if (a == true) {
+        a = false;
+        Scene.canvas = document.getElementById("myCanvas");
+        Scene.canvasContext = Scene.canvas.getContext("2d");
 
-    // Seup the parrot to be displayed.
-    Scene.sprite = number;
-    Scene.textAlign = 'center';
+        // Seup the parrot to be displayed.
+        Scene.sprite = number;
+        Scene.textAlign = 'center';
 
-    // Attach the image to be used for the sprite.
-    Scene.sprite.img = new Image();
-    Scene.sprite.img.src = Scene.sprite.src;
+        // Attach the image to be used for the sprite.
+        Scene.sprite.img = new Image();
+        Scene.sprite.img.src = Scene.sprite.src;
 
-    // Wait till the parrot image is loaded before starting the animation.
-    Scene.sprite.img.onload = function() {
-        Scene.sprite.offset = -Scene.sprite.frames[Scene.sprite.frame].frame.w;
-        Scene.mainLoop();
+        // Wait till the parrot image is loaded before starting the animation.
+        Scene.sprite.img.onload = function() {
+            Scene.sprite.offset = -Scene.sprite.frames[Scene.sprite.frame].frame.w;
+            Scene.mainLoop();
+        }
     }
 };
-
-// Once the basic HTML document is loaded and its parsing has taken place, start the scene.
-document.addEventListener('DOMContentLoaded', Scene.start);
 
 Scene.clearCanvas = function() {
     Scene.canvasContext.fillStyle = "lightblue";
