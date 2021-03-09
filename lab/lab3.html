@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Lab3</title>
+    
+</head>
+<body>
+    <nav>
+        <a href="../lab.html">Lab</a> 
+    </nav>
+    <div> Lab member: Peng Dong, Enhui Jiang </div><br>
+
+    <form>
+        <label for="title">Title:</label>
+        <input type="text" id="title" name="title" size="40" oninput="changeTitle()"><br><br>
+        <label for="textbox">Note:</label><br>
+        <textarea id="textbox" name="textbox" rows="10" cols="80" oninput="changetext()"></textarea><br><br>
+        
+        <button type="button" onclick="clear1()">Clear!</button>
+    </form>
+
+    <script>
+        document.getElementById("title").value = localStorage.getItem("title");
+        document.getElementById("textbox").innerHTML = localStorage.getItem("textbox");
+
+        function changetext() {
+            var x = document.getElementById("textbox").value;
+            localStorage.setItem("textbox", x);
+        }
+        
+        function changeTitle() {
+            var x= document.getElementById("title").value;
+            localStorage.setItem("title", x);
+        }
+
+        function clear1(){
+            document.getElementById("textbox").value ="";
+            document.getElementById("title").value ="";
+            localStorage.removeItem("textbox");
+            localStorage.removeItem("title");  
+            }
+    </script>
+</body>
+</html>
